@@ -1,6 +1,10 @@
 
 @import '/Style/vars.css';
+@import '/Style/fonts.css'; 
+@import '/Style/logo.css';
 @import '/Style/helpers.css'; 
+@import '/Style/base.css'; 
+@import '/Style/header.css'; 
 
 
 
@@ -29,38 +33,38 @@ img{
 
     object-fit: contain;
 }
-
+.nav.middle-layout{
+    height: 100px;
+}
 .nav{
-    background-color: red;
-    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    /* flex-grow: 1; */
 
 }
-.main-header{
-    flex-grow: 1;
-    background-color: var(--primary-color-1);
-}
 
+.main-footer.middle-layout{
+    height: 160px;
+
+}
 .footer-container{
     background-color: var(--primary-color-1);
-    flex-grow: 1;
 
     
 }
 .content-container{
-    flex-grow: 3;
-    /* display: flex; */
-    
+    flex-grow: 1;
+    background-color: var(--primary-color-2);
+    flex-direction: column;
 
 
     /* display: grid; */
 }
 .gallery-container{
     display: grid;
-    height: 100%;
     /* grid-template-rows: repeat(3, 2fr);  */
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-  
+    grid-template-columns: repeat(auto-fill, minmax(100px, 104.4531px));
+    /* co-gap: 1.25rem; */
+    column-gap: 0.3rem;
     
 }
 .canvas-modal{
@@ -90,8 +94,30 @@ img{
 
 img{
     width: 100%;
-    height: 100%;
-    object-fit: fill; 
-  
+    /* height: 100%; */
+    /* object-fit: contain;  */
+    /* object-position: 5; */
 
+}
+.me-pictue{
+    width: 200px;
+    height: 200px;
+    border-radius: 60%;
+    background-image: url(/imgs/me.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* margin-right: 0%; */
+    /* flex-grow: 1; */
+    
+}
+.lorem{
+    width: 400px;
+    /* flex-grow: 2; */
+}
+.about-me.middle-layout{
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
 }

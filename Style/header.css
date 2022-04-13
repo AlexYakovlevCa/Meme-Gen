@@ -1,0 +1,26 @@
+.main-header{
+    /* flex-grow: 1; */
+    background-color: var(--primary-color-1);
+}
+
+
+a.main-nav-item{
+    color: var(--primary-color-6);
+    /* font-weight: 100; */
+    font-size:1.1875rem ;
+    height: 70px;
+    justify-content: space-between;
+    
+    align-items: center;
+}
+    
+
+.header.flex.middle-layout{
+justify-content: space-between;
+align-items: center;
+}
+.page-nav{
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
