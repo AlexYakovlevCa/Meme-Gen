@@ -9,18 +9,30 @@
   </head>
   <body onload="initPage()">
     <div class="main-container">
-      <header class="main-header"></header>
-      <nav class="nav">
-        <input type="text" list="searchlist" placeholder="Search by Name" />
-        <filters class="filters"> x x x x x x x </filters>
-        <datalist id="searchlist">
-          <option value="Happy"></option>
-          <option value="Sad"></option>
-          <option value="Pet"></option>
-          <option value="Funny"></option>
-        </datalist>
-      </nav>
-      <div class="content-container">
+      <div class="main-header">
+        
+        <header class="header middle-layout">
+          <div class="logo">Logo</div>
+          <div class="page-nav">
+            <a href="" class="gallery">Gallery</a>
+            <a href="" class="about">About</a>
+          </div>
+        </header>
+      </div>
+      <div class="middle-nav-container">
+      <nav class="nav middle-layout">
+
+          <input type="text" list="searchlist" placeholder="Search by Name" />
+          <filters class="filters"> x x x x x x x </filters>
+          <datalist id="searchlist">
+            <option value="Happy"></option>
+            <option value="Sad"></option>
+            <option value="Pet"></option>
+            <option value="Funny"></option>
+          </datalist>
+        </nav>
+      </div>
+      <div class="content-container middle-layout">
         <div class="gallery-container"></div>
               <div class="canvas-modal">
                  <div class="options">
@@ -41,7 +53,10 @@
                 </div>
              </div>
       </div>
-      <footer class="main-footer">Footerrr</footer>
+      <div class="footer-container">
+
+        <footer class="main-footer middle-layout">Footerrr</footer>
+      </div>
     </div>
 
     <script src="MainScript/utilities.js"></script>

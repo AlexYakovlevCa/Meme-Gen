@@ -40,7 +40,7 @@ function resizeCanvas() {
 function clearCanvas() {
   gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
   console.log("cleard!");
-  initPage();
+  // initPage();
 }
 
 function onDown(ev) {
@@ -54,7 +54,7 @@ function onDown(ev) {
 function onMove(ev) {
   // if() return
 //   let pos = getEvPos(ev);
-console.log('moveee')
+// console.log('moveee',ev.target)
   if (
     isClick & (ev.offsetX > 5) &&
     ev.offsetX < gElCanvas.width - 5 &&
