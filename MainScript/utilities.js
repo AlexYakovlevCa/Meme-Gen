@@ -57,7 +57,7 @@ function pad(val) {
   return valString
 }
 
-gStartTime = Date.now()
+// gStartTime = Date.now()
 function timer() {
   //NOTICE: WE NEED GLOBAL START TIME - gStartTime
   var timeDiff = Date.now() - gStartTime

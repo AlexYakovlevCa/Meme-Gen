@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style/main.css" />
     <title>Mene Gen</title>
-</head>
-<body>
+  </head>
+  <body onload="initPage()">
     <div class="main-container">
-        <header class="main-header"></header>
-        <div class="contant-container">
-            <nav class="nav">
-                <input type="text" list="searchlist" placeholder="Search by Name">
-                <datalist id="searchlist">
-                    <option value="Happy"></option>
-                    <option value="Sad"></option>
-                    <option value="Pet"></option>
-                    <option value="Funny"></option>
-                </datalist >
-                <filters class="filters"> x x x x x x x </filters>
-            </nav>
-        </div>
-        <footer class="main-footer"></footer>
+      <header class="main-header"></header>
+      <nav class="nav">
+        <input type="text" list="searchlist" placeholder="Search by Name" />
+        <filters class="filters"> x x x x x x x </filters>
+        <datalist id="searchlist">
+          <option value="Happy"></option>
+          <option value="Sad"></option>
+          <option value="Pet"></option>
+          <option value="Funny"></option>
+        </datalist>
+      </nav>
+      <div class="content-container">
+        <div class="gallery-container"></div>
+              <div class="canvas-modal">
+                 <div class="options">
+                   <input type="text" oninput="ChangeCurrInput(this.value)">
+                   <button class="move-text-right"   onclick="MoveTextRight()" >TxtPosright</button>
+                   <button class="move-text-center"  onclick="MoveTextCenter()" >TxtPoscenter</button>
+                   <button class="move-text-left"    onclick="MoveTextLeft()" >TxtPosleft</button>
+                   <button class="move-text-down"    onclick="MoveTextDown()" >TxtPosDown</button>
+                   <button class="move-text-up"    onclick="MoveTextUp()" >TxtPosUp</button>
+                   <button class="move-selected-up"    onclick="moveSelectedNext()" >TxtselectUp</button>
+                   <button class="move-selected-down"    onclick="moveSelectedPre()" >TxtselectDown</button>
+                   <button class="move-selected-down"    onclick="addTxtLine()" >addTxtLine</button>
+                   <button class="move-selected-down"    onclick="delTxtLine()" >delTxtLine</button>
+                  <!-- To Do Options for Canvas -->
+                  </div>
+                  <div class="canvas-conrainer">
+                  <canvas width="500px" height="500px" class="canvas"></canvas>
+                </div>
+             </div>
+      </div>
+      <footer class="main-footer">Footerrr</footer>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="MainScript/utilities.js"></script>
     <script src="MainScript/Gallery-services.js"></script>
+    <script src="MainScript/canvas-services.js"></script>
     <script src="MainScript/meme-services.js"></script>
-    <script src="MainScript/meme-controller.js"></script>
     <script src="MainScript/Gallery-controller.js"></script>
-</body>
+    <script src="MainScript/meme-controller.js"></script>
+  </body>
 </html>
