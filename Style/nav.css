@@ -1,0 +1,11 @@
+
+
+.nav.middle-layout {
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav {
+  background-color: rgb(255, 255, 255);
+  /* flex-grow: 1; */
+}

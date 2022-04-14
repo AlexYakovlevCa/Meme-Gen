@@ -3,11 +3,31 @@
 var gImgId = 1
 var gImgs = _createImgs()
 var gCuimg = gImgs.length
+var gFilter
 
 _createImgs()
 
 function getImagesForDisplay(){
     return gImgs
+}
+
+
+
+function getFiltersForDisplay(){
+     
+    //  var filters =gImgs.map(img=>{
+    //     return [...img.keywords.forEach(imgs => {
+    //         return [...img]
+    //     })]
+    // })
+    var set = new Set()
+    gImgs.forEach(img =>{
+        // set.add(...img.keywords) 
+        img.keywords.forEach(key=>set.add(key)) 
+    })
+
+    // var uniqueFilters = new Set(...filters)
+    return set
 }
 
 function _createImgs(){

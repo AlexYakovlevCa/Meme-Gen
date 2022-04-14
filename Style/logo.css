@@ -1,3 +1,9 @@
 .logo{
     color: var( --primary-color-6);
+    font-family: MonsterBold;
+    /* font-size: 22px; */
+    width: 131px;
+    height: 22px;
+    background-image: url(/imgs/logo.PNG);
+
 }

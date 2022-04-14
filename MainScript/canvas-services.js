@@ -31,10 +31,14 @@ function addTouchListeners() {
 }
 
 function resizeCanvas() {
+  gElCanvas.width = 0
+  gElCanvas.height = 0
   const elContainer = document.querySelector(".canvas-conrainer");
-  console.log(elContainer.offsetWidth )
-  // gElCanvas.width = elContainer.offsetWidth 
-  // gElCanvas.height = elContainer.offsetHeight 
+  console.log(elContainer.offsetWidth,DynamicSize )
+  DynamicSize = elContainer.offsetWidth
+  gElCanvas.width = elContainer.offsetWidth 
+  gElCanvas.height = elContainer.offsetWidth 
+  console.log(elContainer.offsetWidth)
 }
 
 function clearCanvas() {

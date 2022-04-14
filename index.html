@@ -10,20 +10,35 @@
   <body onload="initPage()">
     <div class="main-container">
       <div class="main-header">
-        
         <header class="header flex middle-layout">
-          <div class="logo">Logo</div>
+          <div class="logo"></div>
           <div class="page-nav flex">
-            <a href="#"  class="main-nav-item gallery flex"><span>Gallery</span></a>
+            <a
+              href="#"
+              class="main-nav-item gallery flex"
+              onclick="onGalleryClick()"
+              ><span class="gallery-btn">Gallery</span></a
+            >
             <a href="#" class="main-nav-item about flex"><span>About</span></a>
           </div>
         </header>
       </div>
       <div class="middle-nav-container">
-      <nav class="nav middle-layout">
-
-          <input type="text" list="searchlist" placeholder="Search by Name" />
-          <filters class="filters"> x x x x x x x </filters>
+        <nav class="nav middle-layout flex">
+          <div class="search-container">
+            <form onsubmit="onFilterSearch()" class="form">
+              <input
+                type="search"
+                placeholder="Enter search key word"
+                list="searchlist"
+                class="search-field"
+              />
+              <button type="submit" class="search-button">
+                <img src="ICONS/search-icon.png" />
+              </button>
+            </form>
+          </div>
+          <div class="filters-text"></div>
           <datalist id="searchlist">
             <option value="Happy"></option>
             <option value="Sad"></option>
@@ -36,36 +51,109 @@
         <div class="gallery-container middle-layout"></div>
         <me class="about-me middle-layout flex">
           <div class="me-pictue"></div>
-          <p class="lorem">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorem at quo? Dicta in amet iste consequuntur, optio explicabo eum, ut veritatis nam esse itaque suscipit illo debitis quidem quis.</p>
+          <p class="lorem">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            dolorem at quo? Dicta in amet iste consequuntur, optio explicabo
+            eum, ut veritatis nam esse itaque suscipit illo debitis quidem quis.
+          </p>
         </me>
-              <div class="canvas-modal">
-                 <div class="options">
-                   <input type="text" oninput="ChangeCurrInput(this.value)">
-                   <button class="move-text-right"   onclick="MoveTextRight()" >TxtPosright</button>
-                   <button class="move-text-center"  onclick="MoveTextCenter()" >TxtPoscenter</button>
-                   <button class="move-text-left"    onclick="MoveTextLeft()" >TxtPosleft</button>
-                   <button class="move-text-down"    onclick="MoveTextDown()" >TxtPosDown</button>
-                   <button class="move-text-up"    onclick="MoveTextUp()" >TxtPosUp</button>
-                   <button class="move-selected-up"    onclick="moveSelectedNext()" >TxtselectUp</button>
-                   <button class="move-selected-down"    onclick="moveSelectedPre()" >TxtselectDown</button>
-                   <button class="move-selected-down"    onclick="addTxtLine()" >addTxtLine</button>
-                   <button class="move-selected-down"    onclick="delTxtLine()" >delTxtLine</button>
-                  <!-- To Do Options for Canvas -->
-                  </div>
-                  <div class="canvas-conrainer">
-                  <canvas width="500px" height="500px" class="canvas"></canvas>
+        <div class="canvas-modal middle-layout">
+          <div class="options">
+            <section class="options-top flex">
+              <input
+                type="text"
+                class="txt-to-canvas"
+                oninput="ChangeCurrInput(this.value)"
+              />
+              <div class="options-top-buttons flex">
+
+                <button
+                class="move-selected-up"
+                onclick="moveSelectedNext()"
+                ></button>
+                <button
+                class="move-selected-down"
+                onclick="moveSelectedPre()"
+                ></button>
+                <button class="add-txt-line" onclick="addTxtLine()"></button>
+                <button class="delete-txt-line" onclick="delTxtLine()"></button>
+              </div>
+              </section>
+              <section class="options-txt-control flex">
+                <button class="inc-font" onclick="onIncFont()"></button>
+                <button class="dec-font" onclick="onDecFont()"></button>
+                <button class="move-text-left" onclick="MoveTextLeft()"></button>
+                <button
+                class="move-text-center"
+                onclick="MoveTextCenter()"
+                ></button>
+                <button
+                class="move-text-right"
+                onclick="MoveTextRight()"
+                ></button>
+                <!-- I have Add'd more options for Max control with buttons -->
+              <!-- <button class="move-text-down"    onclick="MoveTextDown()" ></button> -->
+              <!-- <button class="move-text-up"    onclick="MoveTextUp()" ></button> -->
+              <div class="change-txt-color">
+                <button type="color" class="change-txt-color-btn">
+                  <input
+                    type="color"
+                    class="change-txt-color-input"
+                    oninput="onChangetxtColor(this.value)"
+                    name=""
+                    id=""
+                  />
+                </button>
+              </div>
+              <div class="change-stroke-color">
+                <button type="color" class="change-stroke-color-btn">
+                  <input
+                    type="color"
+                    class="change-stroke-color-input"
+                    oninput=" onChangeStrokeColor(this.value)"
+                    name=""
+                    id=""
+                  />
+                </button>
+              </div>
+            </section>
+            <section class="emotes flex">
+              <button class="left-emote-nav">&#x2039;</button>
+              <img src="emotes/emote-1.png"/>
+              <img src="emotes/emote-2.png"/>
+              <img src="emotes/emote-3.png"/>
+              <button class="right-emote-nav">&#x203A;</button>
+            </section>
+            <section class="share-opts flex">
+              
+              <button  onclick="onShareModal(this)" onmousedown="uploadImg()" class="share-btn-options orng-btn">Share</button>
+                <div hidden class="share-modal"  onclick="onCloseShareModal(this)">
+
+                  <button class="close-share-modal" onclick="onCloseShareModal()" >X</button>
+                  <a class="download orng-btn" href="#" onclick="downloadThisImg(this)" >Download</a>
+                  <a class="share-me orng-btn" target="_blank" href="#" onclick="ShareThisImg()">Share</a>
                 </div>
-             </div>
+            </section>
+            
+          </div>
+          <div class="canvas-conrainer flex">
+            <canvas id="canvas" class="canvas"></canvas>
+          </div>
+        </div>
       </div>
       <div class="footer-container">
-
-        <footer class="main-footer middle-layout">Footerrr</footer>
+        <footer class="main-footer middle-layout flex">
+          <div class="logo"></div>
+          <div class="rights-txt">all rights reserved 2022</div>
+        </footer>
       </div>
     </div>
 
     <script src="MainScript/utilities.js"></script>
     <script src="MainScript/Gallery-services.js"></script>
     <script src="MainScript/canvas-services.js"></script>
+    <script src="MainScript/upload-utils.js"></script>
+
     <script src="MainScript/meme-services.js"></script>
     <script src="MainScript/Gallery-controller.js"></script>
     <script src="MainScript/meme-controller.js"></script>

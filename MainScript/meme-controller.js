@@ -2,13 +2,16 @@
 var gCurrImg;
 var gElCanvas;
 var gCtx;
+var CanvasForDownload;
+var renderHelper = 1
+
 
 function initPage() {
   gElCanvas = document.querySelector("canvas");
   gCtx = gElCanvas.getContext("2d");
+  
   renderImgs();
   addEventListeners();
-  resizeCanvas();
 }
 
 
@@ -18,28 +21,7 @@ function addEventListeners() {
   addTouchListeners();
 }
 
-// function renderCanvas() {
-  //   gCtx.fillStyle = "rgb(160 60 57 / 48%)";
-  //   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
-  // }
-  
-  // function uploadImg() {
-    //   const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
-    //   openModal();
-    //   // A function to be called if request succeeds
-//   function onSuccess(uploadedImgUrl) {
-  //     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
-//     document.querySelector(
-  //       ".user-msg"
-  //     ).innerText = `Your photo is available here:\n ${uploadedImgUrl}`;
-  
-  //     document.querySelector(".share-container").innerHTML = `
-//           <a class="btn" onclick="closeModal()" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-//              Share   
-//           </a>`;
-//   }
-//   doUploadImg(imgDataUrl, onSuccess);
-// }
+
 
 function doUploadImg(imgDataUrl, onSuccess) {
   const formData = new FormData();
@@ -59,13 +41,73 @@ function doUploadImg(imgDataUrl, onSuccess) {
     });
   }
   
-  
+function onGalleryClick(){
+  displayGallery()
+}
 function onClickedImg(img) {
   
   let imgForMeme = getImgById(img.id)
   // console.log(imgForMeme)
+  document.querySelector(".gallery-container").style.display = "none";
+  document.querySelector(".about-me.middle-layout").style.display = "none";
+  document.querySelector(".canvas-modal").style.display = "flex";
+  resizeCanvas() 
   renderMeme(imgForMeme,img)
-  gCurrImg = img
+  
+  window.addEventListener('resize',()=>{
+    renderHelper++
+    if(renderHelper%5===0){
+      console.log('did',renderHelper)
+      resizeCanvas()
+      gMeme.lines.forEach((meme,idx)=>{
+          meme.pos.x = DynamicSize/2
+        
+         if(idx===1){
+          meme.pos.y = DynamicSize-meme.size
+        }
+        else if(idx>1){
+          meme.pos.y=DynamicSize/2
+        }
+      })
+      renderMeme(imgForMeme,img)
+    }
+    /*    pos: {
+        x: getSizeForCanvas()/2,
+        y: 50,
+      },
+    },
+    {
+      txt: "Somthing",
+      size: 50,
+      align: "center",
+      color: "red",
+      stroke: "black",
+      pos: {
+        x: getSizeForCanvas()/2,
+        y: getSizeForCanvas()-50,
+      },
+    },
+  ],
+}; */
 
+  })
+  gCurrImg = img
 }
 
+function onShareModal(elBtn){
+document.querySelector('.share-modal').style.display = 'flex'
+}
+function onCloseShareModal(elModal){
+  
+  if (elModal) elModal.style.display = 'none'
+  else document.querySelector('.share-modal').style.display= 'none'
+}
+function downloadThisImg(elLink){
+    const data = CanvasForDownload
+    elLink.href = data;
+    elLink.download = 'my-canvas';
+  
+}
+
+
+ 

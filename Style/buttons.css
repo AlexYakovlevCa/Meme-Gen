@@ -1,0 +1,223 @@
+.options button {
+  width:40px;
+height:40px;
+border-radius: 12px;
+background-color: #ffffff;
+  background-color: var(--primary-color-6);
+  
+}
+.options {
+  /* width:50%; */
+  height: 100%;
+  flex-basis: 20%;
+
+  gap: 2px;
+  background-color: var(--primary-color-5);
+  /* grid-area: 1/3/-1/5; */
+  /* flex-basis: 40%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.options-txt-control{
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+.options-top{
+  flex-direction: column;
+  padding-top: 5px;
+  gap: 30px
+}
+.options-top-buttons {
+  align-items: center;
+  justify-content: center;
+
+}
+
+.share-opts{
+  justify-content: flex-end;
+}
+
+.emotes{
+  position: relative;
+
+}
+
+
+.emotes button{
+  font-size: 40px;
+  border: none;
+  width: 22px;
+}
+
+ a.orng-btn{
+  width: 120px;
+height: 60px;
+text-align: center;
+padding-top: 16px;
+background-color: var(--primary-color-1);
+border-radius: 12px;
+font-size: 20px;
+font-weight: 600;
+font-family: Monsterrat;
+color: var(--primary-color-6);
+border: none;
+}
+a.orng-btn:hover{
+  font-size: 22px;
+  /* height: 68px */
+}
+button.orng-btn:hover{
+  font-size: 22px;
+  
+}
+button.share-btn-options{
+  margin-bottom: 5px;
+}
+
+.share-modal{
+  position: absolute;
+  
+   z-index: 30;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  
+}
+
+.close-share-modal{
+  position: absolute;
+  top:0;
+  right:0
+}
+
+
+
+.move-text-right {
+  background-image: url(/ICONS/align-to-right.png);
+  background-size: contain;
+}
+.move-text-center {
+  background-image: url(/ICONS/center-text-alignment.png);
+  background-size: contain;
+}
+.move-text-left {
+  background-image: url(/ICONS/align-to-left.png);
+  background-size: contain;
+}
+/* .move-text-down{
+    background-image: url(/ICONS/up-and-down-opposite-double-arrows-side-by-side.png);
+    background-size: contain;
+}
+.move-text-up{
+    background-image: url(/ICONS/Up.PNG);
+    background-position: -10px -9px;
+    background-size: 200%;
+} */
+.move-selected-up {
+  background-image: url(/ICONS/Up.PNG);
+  background-position: -10px -9px;
+  background-size: 72px;
+}
+.move-selected-down {
+  background-image: url(/ICONS/Down.PNG);
+  background-position: -26px -15px;
+  background-size: 72px;
+}
+.add-txt-line {
+  background-image: url(/ICONS/add.png);
+  background-size: contain;
+}
+.delete-txt-line {
+  background-image: url(/ICONS/trash.png);
+  background-size: contain;
+}
+.dec-font{
+    background-image: url(/ICONS/decrease\ font\ -\ icon.png );
+    background-size: contain;
+}
+.inc-font{
+    background-image: url(/ICONS/increase\ font\ -\ icon.png);
+    background-size: contain;
+}
+/* .change-txt-color{
+    background-image: url(/ICONS/paint-board-and-brush.png);
+    background-size: contain;
+} */
+.change-stroke-color-btn{
+    background-image: url(/ICONS/text\ stroke.png);
+    background-size: contain;
+    text-decoration: none;
+}
+.change-txt-color-btn{
+    background-image: url(/ICONS/paint-board-and-brush.png);
+    background-size: contain;
+    text-decoration: none;
+}
+.change-stroke-color-input{
+    width: 40px;
+    height: 40px;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50% ,-50%);
+}
+.change-stroke-color{
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.change-txt-color-input{
+    width: 40px;
+    height: 40px;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50% ,-50%);
+}
+.change-txt{
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+button.orng-btn{
+  width: 120px;
+height: 60px;
+text-align: center;
+background-color: var(--primary-color-1);
+border-radius: 12px;
+font-size: 20px;
+font-weight: 600;
+font-family: Monsterrat;
+color: var(--primary-color-6);
+border: none;
+}
+
+.emotes{
+  /* width: 100%; */
+height: 135px;
+border-radius: 12px;
+display: grid;
+grid-auto-flow: column;
+align-items: center;
+background-color: var(--primary-color-6);
+
+}
+
+.emotes img {
+  aspect-ratio: 3/1;
+  
+}
+.emotes img:hover {
+  aspect-ratio: 2/1;
+  
+}
