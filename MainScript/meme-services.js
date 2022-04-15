@@ -1,6 +1,6 @@
 // var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 };
 var DynamicSize = 440;
-
+ var gKeywordSearchCountMap = {}
 var gMeme = {
   selectedImgId: 5,
   selectedLineIdx: 0,

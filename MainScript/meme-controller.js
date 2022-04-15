@@ -9,6 +9,7 @@ function initPage() {
   gElCanvas = document.querySelector("canvas");
   gCtx = gElCanvas.getContext("2d");
   renderFilters()
+  renderInputFilterOpts()
   renderImgs(false);
   addEventListeners();
 }
@@ -16,6 +17,7 @@ function initPage() {
 function addEventListeners() {
   addMouseListeners();
   addTouchListeners();
+  addKeyBoardListeners()
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
@@ -38,6 +40,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
 
 function onGalleryClick() {
   displayGallery();
+  clearCanvas()
 }
 function onClickedImg(img) {
   let imgForMeme = getImgById(img.id);
@@ -80,9 +83,18 @@ function OnEmoteClick(emote){
 }
 function onFilterSearch(isItem,filterElment,ev) {
   if(ev)ev.preventDefault()
+  
   const filterInput = document.querySelector('.search-field')
+  if(isItem){
+    let value = filterElment.innerText
+    gKeywordSearchCountMap[value] = gKeywordSearchCountMap[value]? gKeywordSearchCountMap[value]+1:1  
+
+    filterElment.style.fontSize = `${gKeywordSearchCountMap[value]+16}px`  
+  }
+  
   var filter =  isItem? filterElment.innerText:filterInput.value
   
   if(filter.length)renderImgs(filter.toLowerCase())
 
 }
+

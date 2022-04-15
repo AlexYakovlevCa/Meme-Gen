@@ -16,6 +16,25 @@ function addTouchListeners() {
   gElCanvas.addEventListener("touchstart", onDown);
   gElCanvas.addEventListener("touchend", onUp);
 }
+function addKeyBoardListeners(){
+  window.addEventListener('keydown',(ev)=>{
+    console.log(ev.key)
+    switch(ev.key){
+      case 'ArrowDown': moveSelectedNext();
+      break
+      case 'ArrowUp':
+      moveSelectedPre();
+      break
+      case 'ArrowRight': 
+      MoveTextRight();
+      break
+      case 'ArrowLeft': 
+      MoveTextLeft();
+      break
+    }
+  })
+
+}
 
 function resizeCanvas() {
   gElCanvas.width = 0
@@ -28,7 +47,7 @@ function resizeCanvas() {
 
 function clearCanvas() {
   gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
-  // initPage();
+
 }
 
 function onDown(ev) {

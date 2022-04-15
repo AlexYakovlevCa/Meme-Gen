@@ -39,11 +39,11 @@
             </form>
           </div>
           <div class="filters-container"></div>
-          <datalist id="searchlist">
-            <option value="Mother Russia"></option>
+          <datalist class="searchlist" id="searchlist">
+            <!-- <option value="Mother Russia"></option>
             <option value="Evil"></option>
             <option value="Pet"></option>
-            <option value="Funny"></option>
+            <option value="Funny"></option> -->
           </datalist>
         </nav>
       </div>
@@ -52,9 +52,14 @@
         <me class="about-me middle-layout flex">
           <div class="me-pictue"></div>
           <p class="lorem">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            dolorem at quo? Dicta in amet iste consequuntur, optio explicabo
-            eum, ut veritatis nam esse itaque suscipit illo debitis quidem quis.
+            Hey! , my name is <strong>Alex Yakovlev.</strong> 
+            currently studieng at <strong>CodingAcademy</strong> BootCamp 💪.
+            Soon to be become a full fledeg&emsp; <strong>Full Stack Developer</strong>
+            &emsp;&nbsp; 🚀&nbsp;&nbsp;   See ya soon!!!
+            
+                                              
+                                                      
+
           </p>
         </me>
         <div class="canvas-modal middle-layout">
@@ -69,34 +74,34 @@
               <div class="options-top-buttons flex">
 
                 <button
-                class="move-selected-up"
+                class="move-selected-up change"
                 onclick="moveSelectedNext()"
                 ></button>
                 <button
-                class="move-selected-down"
+                class="move-selected-down change"
                 onclick="moveSelectedPre()"
                 ></button>
-                <button class="add-txt-line" onclick="addTxtLine()"></button>
-                <button class="delete-txt-line" onclick="delTxtLine()"></button>
+                <button class="add-txt-line change" onclick="addTxtLine()"></button>
+                <button class="delete-txt-line change" onclick="delTxtLine()"></button>
               </div>
               </section>
               <section class="options-txt-control flex">
-                <button class="inc-font" onclick="onIncFont()"></button>
-                <button class="dec-font" onclick="onDecFont()"></button>
-                <button class="move-text-left" onclick="MoveTextLeft()"></button>
+                <button class="inc-font change" onclick="onIncFont()"></button>
+                <button class="dec-font change" onclick="onDecFont()"></button>
+                <button class="move-text-left change" onclick="MoveTextLeft()"></button>
                 <button
-                class="move-text-center"
+                class="move-text-center change"
                 onclick="MoveTextCenter()"
                 ></button>
                 <button
-                class="move-text-right"
+                class="move-text-right change"
                 onclick="MoveTextRight()"
                 ></button>
                 <!-- I have Add'd more options for Max control with buttons -->
               <!-- <button class="move-text-down"    onclick="MoveTextDown()" ></button> -->
               <!-- <button class="move-text-up"    onclick="MoveTextUp()" ></button> -->
               <div class="change-txt-color">
-                <button type="color" class="change-txt-color-btn">
+                <button type="color" class="change-txt-color-btn change">
                   <input
                     type="color"
                     class="change-txt-color-input"
@@ -107,7 +112,7 @@
                 </button>
               </div>
               <div class="change-stroke-color">
-                <button type="color" class="change-stroke-color-btn">
+                <button type="color" class="change-stroke-color-btn change">
                   <input
                     type="color"
                     class="change-stroke-color-input"
@@ -118,12 +123,14 @@
                 </button>
               </div>
             </section>
-            <section class="emotes flex">
-              <button class="left-emote-nav">&#x2039;</button>
-              <img  src="emotes/emote-1.png" onclick="OnEmoteClick(this)"/>
-              <img  src="emotes/emote-2.png" onclick="OnEmoteClick(this)"/>
-              <img  src="emotes/emote-3.png" onclick="OnEmoteClick(this)"/>
-              <button class="right-emote-nav">&#x203A;</button>
+            <section class="emotes">
+              <button class="left-emote-nav emo-btn" onclick="onCarouselLeft()"><img src="/emotes/left-arrow.png" alt=""></button>
+              <div class="emotes-carousel">
+                <!-- <img  src="emotes/emote-3.png" onclick="OnEmoteClick(this)"/>
+                <img  src="emotes/emote-1.png" onclick="OnEmoteClick(this)"/>
+                <img  src="emotes/emote-2.png" onclick="OnEmoteClick(this)"/> -->
+              </div>
+              <button class="right-emote-nav emo-btn" onclick="onCarouselRight()"><img src="/emotes/right-arrow.png" alt=""></button>
             </section>
             <section class="share-opts flex">
               
@@ -154,7 +161,7 @@
     <script src="MainScript/Gallery-services.js"></script>
     <script src="MainScript/canvas-services.js"></script>
     <script src="MainScript/upload-utils.js"></script>
-
+    <script src="MainScript/emotes-carusel.js"></script>
     <script src="MainScript/meme-services.js"></script>
     <script src="MainScript/Gallery-controller.js"></script>
     <script src="MainScript/meme-controller.js"></script>
