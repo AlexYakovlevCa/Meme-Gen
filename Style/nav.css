@@ -9,3 +9,26 @@
   background-color: rgb(255, 255, 255);
   /* flex-grow: 1; */
 }
+.filters-container{
+display: grid;
+grid-template: 1fr /repeat(5,1fr);
+column-gap: 20px;
+align-self: center;
+text-align: center;
+}
+  a.filter-item:hover{
+  
+  /* aspect-ratio: 4/1; */
+  /* padding-block-end:6px ; */
+  /* padding-inline-start:3px ; */
+  /* border: 1px solid red; */
+  
+  box-shadow: inset 0px -2px 0px;
+
+
+}
+
+a.filter-item{
+  width: 45px;
+  height: 1.6rem;
+}

@@ -2,8 +2,9 @@
 
 
 
-function renderImgs() {
-  var imgs = getImagesForDisplay();
+function renderImgs(filter) {
+console.log(filter)
+  var imgs = filter?getImagesForDisplay(filter):getImagesForDisplay()
   var elGallContainer = document.querySelector(".gallery-container");
   const strHtml = imgs.map(
     (img) => `

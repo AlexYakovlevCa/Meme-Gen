@@ -1,19 +1,15 @@
 // *** Upload a picture to the canvas. ***
 
 function uploadImg() {
-  const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
-  // openModal();
-  // A function to be called if request succeeds
+  const imgDataUrl = CanvasForDownload;
   function onSuccess(uploadedImgUrl) {
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
-    // document.querySelector(
-    //   ".user-msg"
-    // ).innerText = `Your photo is available here:\n ${uploadedImgUrl}`;
 
-    document.querySelector(".share-me").href = 
-         `https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}` 
-             
-        console.log(document.querySelector(".share-me"))
+    document.querySelector(
+      ".share-me"
+    ).href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`;
+
+    console.log(document.querySelector(".share-me"));
   }
   doUploadImg(imgDataUrl, onSuccess);
 }
@@ -43,7 +39,7 @@ function loadImageFromInput(ev, onImageReady) {
     console.log("onload");
     var img = new Image();
     img.src = event.target.result;
-    console.log(img.src,img)
+    console.log(img.src, img);
     img.onload = onImageReady.bind(null, img);
   };
   console.log("after");
@@ -54,6 +50,5 @@ function renderImgg(img) {
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 function onImgInput(ev) {
-  
   loadImageFromInput(ev, renderImgg);
 }

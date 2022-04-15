@@ -1,33 +1,37 @@
 'use strict'
 
+const FILTERS = 5
 var gImgId = 1
 var gImgs = _createImgs()
 var gCuimg = gImgs.length
-var gFilter
+var gFilter ;
+var uniqueFilter;
+
 
 _createImgs()
 
-function getImagesForDisplay(){
+function getImagesForDisplay(isFilter){
+    console.log(isFilter)
+    if(isFilter){
+        
+        return gImgs.filter(img=>{
+            return img.keywords.includes(isFilter)
+        })
+    }
     return gImgs
 }
 
 
 
 function getFiltersForDisplay(){
-     
-    //  var filters =gImgs.map(img=>{
-    //     return [...img.keywords.forEach(imgs => {
-    //         return [...img]
-    //     })]
-    // })
     var set = new Set()
     gImgs.forEach(img =>{
-        // set.add(...img.keywords) 
+        
         img.keywords.forEach(key=>set.add(key)) 
     })
-
-    // var uniqueFilters = new Set(...filters)
-    return set
+    uniqueFilter =[...set]
+    
+    return [...set].slice(0, FILTERS)
 }
 
 function _createImgs(){
@@ -40,17 +44,17 @@ function _createImgs(){
         createImg("img/5.jpg",["funny", "baby"]),
         createImg("img/6.jpg",["funny", "OgMeme"]),
         createImg("img/7.jpg",["funny", "baby"]),
-        createImg("img/8.jpg",["funny", "Tv"]),
+        createImg("img/8.jpg",["funny", "tv"]),
         createImg("img/9.jpg",["funny", "baby",'evil']),
         createImg("img/10.jpg",["funny", "usa"]),
         createImg("img/11.jpg",["love"]),
-        createImg("img/12.jpg",["funny", "Tv"]),
-        createImg("img/13.jpg",["funny", "Tv"]),
-        createImg("img/14.jpg",["funny", "Tv"]),
-        createImg("img/15.jpg",["funny", "Tv"]),
-        createImg("img/16.jpg",["funny", "Tv"]),
-        createImg("img/17.jpg",["funny", "Mother Russia"]),
-        createImg("img/18.jpg",["funny", "Tv"])
+        createImg("img/12.jpg",["funny", "tv"]),
+        createImg("img/13.jpg",["funny", "tv"]),
+        createImg("img/14.jpg",["funny", "tv"]),
+        createImg("img/15.jpg",["funny", "tv"]),
+        createImg("img/16.jpg",["funny", "tv"]),
+        createImg("img/17.jpg",["funny", "mother russia"]),
+        createImg("img/18.jpg",["funny", "tv"])
     ]
 }
 
@@ -70,4 +74,12 @@ return gImgs.find(img=>img.id ===parseInt(selectedImgId))
 
 function getElementByClass(classOfEl){
 return document.querySelector(`${classOfEl}`)
+}
+function renderFilters(){
+     gFilter = getFiltersForDisplay()
+    const filterContainer = document.querySelector('.filters-container')
+    var strHtml = gFilter.map(filter=>
+        `<a class="filter-item" onclick="onFilterSearch(true,this)">${filter}</a>`
+    )
+    filterContainer.innerHTML = strHtml.join('')
 }
