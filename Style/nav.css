@@ -18,17 +18,12 @@ text-align: center;
 }
   a.filter-item:hover{
   
-  /* aspect-ratio: 4/1; */
-  /* padding-block-end:6px ; */
-  /* padding-inline-start:3px ; */
-  /* border: 1px solid red; */
-  
-  box-shadow: inset 0px -2px 0px;
-
+font-weight: bold;
+cursor: pointer;
 
 }
 
 a.filter-item{
-  height: 40px;
+  height: 10px;
     width: 80px;
 }

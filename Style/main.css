@@ -34,7 +34,8 @@ body {
   }
 .img-for-display:hover{
 width: 120px; ;
-height: 120px; ;
+height: 120px; 
+cursor: pointer;
 }
 .content-container {
   flex-grow: 1;
@@ -187,5 +188,10 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  .me-pictue {
+    width: 172px;
+    height: 172px;
+    background-size: 172px;
   }
 }

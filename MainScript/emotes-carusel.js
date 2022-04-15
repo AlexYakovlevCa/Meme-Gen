@@ -9,7 +9,7 @@ function onCarouselLeft(){
     renderEmotes()
 }
 function onCarouselRight(){
-    if(startIdx>=gEmotes.length-startIdx) return
+    if(startIdx>gEmotes.length-startIdx) return
     startIdx++
     renderEmotes()
 }
@@ -31,7 +31,7 @@ return gEmotes.slice(startIdx,SIZE+startIdx)
 }
 function _createEmotes(){
     let allEmotes = []
-    for(let i= 0;i<7;i++){
+    for(let i= 0;i<8;i++){
         let emote = createEmote(i+1)
         allEmotes.push(emote)
     }
