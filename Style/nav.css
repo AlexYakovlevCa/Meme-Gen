@@ -11,10 +11,12 @@
 }
 .filters-container{
 display: grid;
-grid-template: 1fr /repeat(5,1fr);
-column-gap: 20px;
+grid-template: 1fr 1fr /repeat(5,1fr);
+grid-auto-flow: column;
+/* column-gap: 20px; */
 align-self: center;
 text-align: center;
+row-gap: 8px;
 }
   a.filter-item:hover{
   
@@ -25,5 +27,5 @@ cursor: pointer;
 
 a.filter-item{
   height: 10px;
-    width: 80px;
+    width: 76px;
 }

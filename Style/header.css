@@ -9,7 +9,7 @@ a.main-nav-item {
   font-size: 1.1875rem;
   height: 70px;
   justify-content: space-between;
-
+  transition: 0.3 ease;
   align-items: center;
 }
 
@@ -34,6 +34,8 @@ a.main-nav-item {
   display: block;
   padding-right: 5px;
   margin-right: 3px;
+  transition: 0.3 ease;
+
   /* height: 50%; */
   border-right: var(--primary-color-4) solid 1px;
 }

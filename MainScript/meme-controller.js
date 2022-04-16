@@ -39,16 +39,23 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 function onGalleryClick() {
+  document.querySelector('body').classList.remove('menu-open')
   displayGallery();
-  clearCanvas()
+  // clearCanvas()
 }
 function onClickedImg(img) {
   let imgForMeme = getImgById(img.id);
   document.querySelector(".gallery-container").style.display = "none";
   document.querySelector(".about-me.middle-layout").style.display = "none";
+  document.querySelector(".nav.middle-layout").style.display = "none";
   document.querySelector(".canvas-modal").style.display = "flex";
+
+  setTimeout(()=>{
   resizeCanvas();
-  renderMeme(imgForMeme, img);
+
+    renderMeme(imgForMeme, img);
+
+  },0)
 
   window.addEventListener("resize", () => {
     resizeCanvas();
@@ -98,3 +105,6 @@ function onFilterSearch(isItem,filterElment,ev) {
 
 }
 
+function toggleMenu(){
+  document.querySelector('body').classList.toggle('menu-open')
+}
