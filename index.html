@@ -14,15 +14,22 @@
           <div class="logo"></div>
           <div class="page-nav flex">
             <a
-            href="#"
-            class="main-nav-item gallery flex"
-            onclick="onGalleryClick()"
-            ><span class="gallery-btn">Gallery</span></a
+              href="#"
+              class="main-nav-item gallery flex"
+              onclick="onGalleryClick()"
             >
+              <span class="gallery-btn">Gallery</span>
+              <a
+                href="#"
+                class="main-nav-item meme flex"
+                onclick="onMemeOptClick()"
+                ><span>Meme</span></a
+              >
+            </a>
             <a href="#" class="main-nav-item about flex"><span>About</span></a>
           </div>
           <button class="btn-menu-hamburger" onclick="toggleMenu()"></button>
-          <div class="hamuburger-close-bg"  onclick="toggleMenu()"></div>
+          <div class="hamuburger-close-bg" onclick="toggleMenu()"></div>
         </header>
       </div>
       <div class="middle-nav-container">
@@ -41,61 +48,71 @@
             </form>
           </div>
           <div class="filters-container"></div>
-          <datalist class="searchlist" id="searchlist">
-          </datalist>
+          <datalist class="searchlist" id="searchlist"> </datalist>
         </nav>
       </div>
       <div class="content-container flex">
         <div class="gallery-container middle-layout"></div>
+
+        <div class="meme-container middle-layout"></div>
+
         <me class="about-me middle-layout flex">
           <div class="me-pictue"></div>
           <p class="lorem">
-            Hey! , my name is <strong>Alex Yakovlev.</strong> 
-            currently studieng at <strong>CodingAcademy</strong> BootCamp 💪.
-            Soon to be become a full fledeg&emsp; <strong>Full Stack Developer</strong>
-            &emsp;&nbsp; 🚀&nbsp;&nbsp;   See ya soon!!!
-            
-                                              
-                                                      
-
+            Hey! , my name is <strong>Alex Yakovlev.</strong> currently studieng
+            at <strong>CodingAcademy</strong> BootCamp 💪. Soon to be become a
+            full fledeg&emsp; <strong>Full Stack Developer</strong>
+            &emsp;&nbsp; 🚀&nbsp;&nbsp; See ya soon!!!
           </p>
         </me>
         <div class="canvas-modal middle-layout">
           <div class="options">
             <section class="options-top flex">
               <input
-              placeholder="Somthing ...."
+                placeholder="Somthing ...."
                 type="text"
                 class="txt-to-canvas"
                 oninput="ChangeCurrInput(this.value)"
               />
               <div class="options-top-buttons flex">
-
                 <button
-                class="move-selected-up change"
-                onclick="moveSelectedNext()"
+                  class="move-selected-up change"
+                  onclick="moveSelectedNext()"
                 ></button>
                 <button
-                class="move-selected-down change"
-                onclick="moveSelectedPre()"
+                  class="move-selected-up save"
+                  onclick="onSaveMeme()"
                 ></button>
-                <button class="add-txt-line change" onclick="addTxtLine()"></button>
-                <button class="delete-txt-line change" onclick="delTxtLine()"></button>
+                <button
+                  class="move-selected-down change"
+                  onclick="moveSelectedPre()"
+                ></button>
+                <button
+                  class="add-txt-line change"
+                  onclick="addTxtLine()"
+                ></button>
+                <button
+                  class="delete-txt-line change"
+                  onclick="delTxtLine()"
+                ></button>
               </div>
-              </section>
-              <section class="options-txt-control flex">
-                <button class="inc-font change" onclick="onIncFont()"></button>
-                <button class="dec-font change" onclick="onDecFont()"></button>
-                <button class="move-text-left change" onclick="MoveTextLeft()"></button>
-                <button
+            </section>
+            <section class="options-txt-control flex">
+              <button class="inc-font change" onclick="onIncFont()"></button>
+              <button class="dec-font change" onclick="onDecFont()"></button>
+              <button
+                class="move-text-left change"
+                onclick="MoveTextLeft()"
+              ></button>
+              <button
                 class="move-text-center change"
                 onclick="MoveTextCenter()"
-                ></button>
-                <button
+              ></button>
+              <button
                 class="move-text-right change"
                 onclick="MoveTextRight()"
-                ></button>
-                <!-- I have Add'd more options for Max control with buttons -->
+              ></button>
+              <!-- I have Add'd more options for Max control with buttons -->
               <!-- <button class="move-text-down"    onclick="MoveTextDown()" ></button> -->
               <!-- <button class="move-text-up"    onclick="MoveTextUp()" ></button> -->
               <div class="change-txt-color">
@@ -122,25 +139,42 @@
               </div>
             </section>
             <section class="emotes">
-              <button class="left-emote-nav emo-btn" onclick="onCarouselLeft()"><img src="/emotes/left-arrow.png" alt=""></button>
+              <button class="left-emote-nav emo-btn" onclick="onCarouselLeft()">
+                <img src="/emotes/left-arrow.png" alt="" />
+              </button>
               <div class="emotes-carousel">
                 <!-- <img  src="emotes/emote-3.png" onclick="OnEmoteClick(this)"/>
                 <img  src="emotes/emote-1.png" onclick="OnEmoteClick(this)"/>
                 <img  src="emotes/emote-2.png" onclick="OnEmoteClick(this)"/> -->
               </div>
-              <button class="right-emote-nav emo-btn" onclick="onCarouselRight()"><img src="/emotes/right-arrow.png" alt=""></button>
+              <button
+                class="right-emote-nav emo-btn"
+                onclick="onCarouselRight()"
+              >
+                <img src="/emotes/right-arrow.png" alt="" />
+              </button>
             </section>
             <section class="share-opts flex">
-              
-              <button  onclick="onShareModal(this)" onmousedown="uploadImg()" class="share-btn-options orng-btn">Share</button>
-                <div hidden class="share-modal"  onclick="onCloseShareModal(this)">
-
-                  <button class="close-share-modal" onclick="onCloseShareModal()" >X</button>
-                  <a class="download orng-btn" href="#" onclick="downloadThisImg(this)" >Download</a>
-                  <a class="share-me orng-btn" target="_blank" href="#" >Share</a>
-                </div>
+              <button
+                onclick="onShareModal(this)"
+                onmousedown="uploadImg()"
+                class="share-btn-options orng-btn"
+              >
+                Share
+              </button>
+              <div hidden class="share-modal" onclick="onCloseShareModal(this)">
+                <button class="close-share-modal" onclick="onCloseShareModal()">
+                  X
+                </button>
+                <a
+                  class="download orng-btn"
+                  href="#"
+                  onclick="downloadThisImg(this)"
+                  >Download</a
+                >
+                <a class="share-me orng-btn" target="_blank" href="#">Share</a>
+              </div>
             </section>
-            
           </div>
           <div class="canvas-conrainer flex">
             <canvas id="canvas" class="canvas"></canvas>

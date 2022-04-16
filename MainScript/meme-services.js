@@ -2,34 +2,10 @@
 var DynamicSize = 440;
 var currImgObj;
 var gKeywordSearchCountMap = {};
-var gMeme = {
-  selectedImgId: 5,
-  selectedLineIdx: 0,
-  lines: [
-    {
-      txt: "Somthing",
-      size: 50,
-      align: "center",
-      color: "red",
-      stroke: "black",
-      pos: {
-        x: DynamicSize / 2,
-        y: 50,
-      },
-    },
-    {
-      txt: "Somthing",
-      size: 50,
-      align: "center",
-      color: "red",
-      stroke: "black",
-      pos: {
-        x: DynamicSize / 2,
-        y: DynamicSize - 50,
-      },
-    },
-  ],
-};
+var gSavedMemes = [];
+var gMeme = {};
+
+
 
 function renderMeme(Objimg, elImg) {
   currImgObj = Objimg;
@@ -86,6 +62,8 @@ function drawImgSuper(elImg, Objimg) {
       }
 
       CanvasForDownload = gElCanvas.toDataURL("image/jpeg");
+      gMeme.screenshot = gElCanvas.toDataURL("image/jpeg");
+      // gMeme.screenshot = img.src
       setTimeout(() => {
         if (gMeme.selectedLineIdx === idx) {
           drawRect(line);
@@ -271,4 +249,71 @@ function drawEmote(line) {
   var img = new Image();
   img.src = line.emote;
   gCtx.drawImage(img, line.pos.x, line.pos.y, line.size, line.size);
+}
+
+function createMeme() {
+  gMeme = {
+    selectedImgId: 0,
+    selectedLineIdx: 0,
+    screenshot: 0,
+    memeId: makeId(),
+    lines: [
+      {
+        txt: "Somthing",
+        size: 50,
+        align: "center",
+        color: "red",
+        stroke: "black",
+        pos: {
+          x: DynamicSize / 2,
+          y: 50,
+        },
+      },
+      {
+        txt: "Somthing",
+        size: 50,
+        align: "center",
+        color: "red",
+        stroke: "black",
+        pos: {
+          x: DynamicSize / 2,
+          y: DynamicSize - 50,
+        },
+      },
+    ],
+  };
+}
+
+function loadMemesFromStorage() {
+  const savedMems = loadFromStorage(KEY);
+  console.log(savedMems);
+
+  if (savedMems) gSavedMemes = savedMems;
+  else gSavedMemes = [];
+}
+function saveMeme() {
+  const savedMemeIdx = gSavedMemes.findIndex(
+    (meme) => meme.memeId === gMeme.memeId
+  );
+  if (savedMemeIdx === -1) gSavedMemes.push(gMeme);
+  else gSavedMemes[savedMemeIdx] = gMeme;
+  saveToStorage(KEY, gSavedMemes);
+  loadSavedMemesToGallery();
+}
+
+function loadSavedMemesToGallery() {
+  const elMemeGallery = document.querySelector(".meme-container");
+  loadMemesFromStorage();
+
+  if (!gSavedMemes) return;
+  var htmlStr = gSavedMemes.map(
+    (meme) => `
+  <div  class = "saved-meme-img" >
+  <img data-id = "${meme.memeId}" src="${meme.screenshot}" onclick="onClickedMemeImg(this)" />
+</div>
+  `
+  );
+
+  elMemeGallery.innerHTML = htmlStr.join("");
+  elMemeGallery.style.display = "none";
 }

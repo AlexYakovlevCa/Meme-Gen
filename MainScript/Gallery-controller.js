@@ -9,7 +9,7 @@ console.log(filter)
   const strHtml = imgs.map(
     (img) => `
 <div class = "img-for-display" >
-<img id ="${img.id}" class="${img.id}"src="imgs/${img.id}.jpg" onclick="onClickedImg(this)" />
+<img id ="${img.id}" class="img-num-${img.id}"src="imgs/${img.id}.jpg" onclick="onClickedImg(this)" />
 </div>
 `
   );

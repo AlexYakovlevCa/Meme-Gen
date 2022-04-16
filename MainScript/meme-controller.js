@@ -1,6 +1,7 @@
 "use strict";
 var gCurrImg;
 var gElCanvas;
+const KEY = "memes";
 var gCtx;
 var CanvasForDownload;
 var isSelected = false;
@@ -8,16 +9,21 @@ var isSelected = false;
 function initPage() {
   gElCanvas = document.querySelector("canvas");
   gCtx = gElCanvas.getContext("2d");
-  renderFilters()
-  renderInputFilterOpts()
-  renderImgs(false);
+  loadMemesFromStorage();
+  createMeme();
+  renderContent();
+  loadSavedMemesToGallery();
   addEventListeners();
 }
-
+function renderContent() {
+  renderFilters();
+  renderInputFilterOpts();
+  renderImgs(false);
+}
 function addEventListeners() {
   addMouseListeners();
   addTouchListeners();
-  addKeyBoardListeners()
+  addKeyBoardListeners();
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
@@ -37,25 +43,36 @@ function doUploadImg(imgDataUrl, onSuccess) {
       console.error(err);
     });
 }
-
+function onMemeOptClick() {
+  document.querySelector("body").classList.remove("menu-open");
+  document.querySelector(".gallery-container").style.display = "none";
+  document.querySelector(".meme-container").style.display = "grid";
+  document.querySelector(".canvas-modal").style.display = "none";
+  document.querySelector(".about-me.middle-layout").style.display = "none";
+  document.querySelector(".nav.middle-layout").style.display = "none";
+}
 function onGalleryClick() {
-  document.querySelector('body').classList.remove('menu-open')
+  document.querySelector("body").classList.remove("menu-open");
+  document.querySelector(".meme-container").style.display = "none";
+
   displayGallery();
   // clearCanvas()
 }
 function onClickedImg(img) {
-  let imgForMeme = getImgById(img.id);
+    let imgForMeme = getImgById(img.id);
+  console.log(img)
   document.querySelector(".gallery-container").style.display = "none";
   document.querySelector(".about-me.middle-layout").style.display = "none";
   document.querySelector(".nav.middle-layout").style.display = "none";
   document.querySelector(".canvas-modal").style.display = "flex";
+  document.querySelector(".meme-container").style.display = "none";
 
-  setTimeout(()=>{
-  resizeCanvas();
+
+  setTimeout(() => {
+    resizeCanvas();
 
     renderMeme(imgForMeme, img);
-
-  },0)
+  }, 0);
 
   window.addEventListener("resize", () => {
     resizeCanvas();
@@ -85,26 +102,44 @@ function downloadThisImg(elLink) {
   elLink.href = data;
   elLink.download = "my-canvas";
 }
-function OnEmoteClick(emote){
-  addEmote(emote)
+function OnEmoteClick(emote) {
+  addEmote(emote);
 }
-function onFilterSearch(isItem,filterElment,ev) {
-  if(ev)ev.preventDefault()
-  
-  const filterInput = document.querySelector('.search-field')
-  if(isItem){
-    let value = filterElment.innerText
-    gKeywordSearchCountMap[value] = gKeywordSearchCountMap[value]? gKeywordSearchCountMap[value]+1:1  
+function onFilterSearch(isItem, filterElment, ev) {
+  if (ev) ev.preventDefault();
 
-    filterElment.style.fontSize = `${gKeywordSearchCountMap[value]+16}px`  
+  const filterInput = document.querySelector(".search-field");
+  if (isItem) {
+    let value = filterElment.innerText;
+    gKeywordSearchCountMap[value] = gKeywordSearchCountMap[value]
+      ? gKeywordSearchCountMap[value] + 1
+      : 1;
+
+    filterElment.style.fontSize = `${gKeywordSearchCountMap[value] + 16}px`;
   }
-  
-  var filter =  isItem? filterElment.innerText:filterInput.value
-  
-  if(filter.length)renderImgs(filter.toLowerCase())
+
+  var filter = isItem ? filterElment.innerText : filterInput.value;
+
+  if (filter.length) renderImgs(filter.toLowerCase());
+}
+
+function toggleMenu() {
+  document.querySelector("body").classList.toggle("menu-open");
+}
+function onSaveMeme() {
+  saveMeme();
+}
+function onClickedMemeImg(elImg){
+var savedMeme = gSavedMemes.find(meme=>meme.memeId===elImg.dataset.id)
+
+var imgForMeme = getImgById(savedMeme.selectedImgId)
+console.log(imgForMeme)
+gMeme = savedMeme
+var img = document.querySelector(`.img-num-${imgForMeme.id}`)
+console.log(img)
+onClickedImg(img)
+
 
 }
 
-function toggleMenu(){
-  document.querySelector('body').classList.toggle('menu-open')
-}
+  

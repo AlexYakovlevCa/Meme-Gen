@@ -1,5 +1,5 @@
+'use strict'
 // *** Upload a picture to the canvas. ***
-
 function uploadImg() {
   const imgDataUrl = CanvasForDownload;
   function onSuccess(uploadedImgUrl) {

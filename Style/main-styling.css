@@ -87,3 +87,9 @@ img {
   background-repeat: no-repeat;
   background-size: 141px;
 }
+.meme-container{
+  display: none;
+  width: 100%;
+  grid-template:repeat(auto-fill,minmax(40px,100px))/repeat(auto-fill,minmax(40px,100px))
+
+}
