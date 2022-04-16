@@ -126,12 +126,12 @@ button.share-btn-options{
 }
 
 .move-selected-up {
-  background-image: url(../icons-icons/Up.PNG);
+  background-image: url(../icons-icons/up.png);
   background-position: -10px -9px;
   background-size: 72px;
 }
 .move-selected-down {
-  background-image: url(../icons-icons/Down.PNG);
+  background-image: url(../icons-icons/down.png);
   background-position: -26px -15px;
   background-size: 72px;
 }
