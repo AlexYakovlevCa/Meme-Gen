@@ -113,68 +113,57 @@ button.share-btn-options{
 
 
 .move-text-right {
-  background-image: url(/icons-icons/align-to-right.png);
+  background-image: url(icons-icons/align-to-right.png);
   background-size: contain;
 }
 .move-text-center {
-  background-image: url(/icons-icons/center-text-alignment.png);
+  background-image: url(icons-icons/center-text-alignment.png);
   background-size: contain;
 }
 .move-text-left {
-  background-image: url(/icons-icons/align-to-left.png);
+  background-image: url(icons-icons/align-to-left.png);
   background-size: contain;
 }
-/* .move-text-down{
-    background-image: url(/icons-icons/up-and-down-opposite-double-arrows-side-by-side.png);
-    background-size: contain;
-}
-.move-text-up{
-    background-image: url(/icons-icons/Up.PNG);
-    background-position: -10px -9px;
-    background-size: 200%;
-} */
+
 .move-selected-up {
-  background-image: url(/icons-icons/Up.PNG);
+  background-image: url(icons-icons/Up.PNG);
   background-position: -10px -9px;
   background-size: 72px;
 }
 .move-selected-down {
-  background-image: url(/icons-icons/Down.PNG);
+  background-image: url(icons-icons/Down.PNG);
   background-position: -26px -15px;
   background-size: 72px;
 }
 .add-txt-line {
-  background-image: url(/icons-icons/add.png);
+  background-image: url(icons-icons/add.png);
   background-size: contain;
 }
 .delete-txt-line {
-  background-image: url(/icons-icons/trash.png);
+  background-image: url(icons-icons/trash.png);
   background-size: contain;
 }
 .dec-font{
-    background-image: url(/icons-icons/decrease\ font\ -\ icon.png );
+    background-image: url(icons-icons/decrease\ font\ -\ icon.png );
     background-size: contain;
 }
 .inc-font{
-    background-image: url(/icons-icons/increase\ font\ -\ icon.png);
+    background-image: url(icons-icons/increase\ font\ -\ icon.png);
     background-size: contain;
 }
-/* .change-txt-color{
-    background-image: url(/icons-icons/paint-board-and-brush.png);
-    background-size: contain;
-} */
+
 .change-stroke-color-btn{
-    background-image: url(/icons-icons/text\ stroke.png);
+    background-image: url(icons-icons/text\ stroke.png);
     background-size: contain;
     text-decoration: none;
 }
 .change-txt-color-btn{
-    background-image: url(/icons-icons/paint-board-and-brush.png);
+    background-image: url(icons-icons/paint-board-and-brush.png);
     background-size: contain;
     text-decoration: none;
 }
 .save.change{
-    background-image: url(/icons-icons/save.png);
+    background-image: url(icons-icons/save.png);
     background-size: contain;
     text-decoration: none;
 }
@@ -287,7 +276,7 @@ bottom: 0;
 right: 0;
 width: 30px;
 height: 30px;
-background-image: url(/icons-icons/trash.png);
+background-image: url(icons-icons/trash.png);
 background-size: contain;
 }
 
