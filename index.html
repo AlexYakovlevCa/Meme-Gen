@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Style/main.css" />
+    <link rel="stylesheet" href="style/main.css" />
     <title>Mene Gen</title>
   </head>
   <body onload="initPage()">
@@ -121,6 +121,7 @@
                 class="move-text-right change"
                 onclick="MoveTextRight()"
               ></button>
+             
               <div class="font-style">
                 <select onchange="onChangeFontStyle(this)" list="font-list" >
                   <option value="impact">impact</option>
@@ -150,20 +151,23 @@
                   />
                 </button>
                
+                <datalist id="font-list" class="font-list">
                 
+                </datalist>
               </div>
             </section>
             <section class="emotes">
               <button class="left-emote-nav emo-btn" onclick="onCarouselLeft()">
-                <img src="/emotes/left-arrow.png" alt="" />
+                <img src="emotes/left-arrow.png" alt="" />
               </button>
               <div class="emotes-carousel">
+               
               </div>
               <button
                 class="right-emote-nav emo-btn"
                 onclick="onCarouselRight()"
               >
-                <img src="/emotes/right-arrow.png" alt="" />
+                <img src="emotes/right-arrow.png" alt="" />
               </button>
             </section>
             <section class="share-opts flex">
