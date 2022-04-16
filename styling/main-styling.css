@@ -87,7 +87,7 @@ img {
   width: 141px;
   height: 141px;
   border-radius: 60%;
-  background-image: url(/imgs/me.jpeg);
+  background-image: url(imgs/me.jpeg);
   background-repeat: no-repeat;
   background-size: 141px;
 }

@@ -19,7 +19,7 @@ function renderEmotes(){
     const elEmoteContainer = document.querySelector('.emotes-carousel')
     let emotes = getEmotesForDisplay()
     const strHtml = emotes.map((emote)=>`
-    <img class"carousel-img" src="emotes/${emote}"onclick="OnEmoteClick(this)"/>
+    <img class"carousel-img" src="emotes-emotes/${emote}"onclick="OnEmoteClick(this)"/>
     
     `)
     elEmoteContainer.innerHTML=strHtml.join('')
