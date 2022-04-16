@@ -16,14 +16,20 @@ border-radius: 12px;
   justify-content: center;
 }
 
-
+.options button:hover{
+cursor: pointer;
+animation: btnanimation 0.3s 
+}
 
 .options-txt-control{
+  display: grid;
+  grid-template: 1fr 1fr/repeat(5,60px);
   align-items: center;
   justify-content: center;
-  
-  
 }
+  
+  
+
 .options-top{
   flex-direction: column;
   padding-top: 5px;
@@ -84,7 +90,8 @@ button.share-btn-options{
 
 .share-modal{
   position: absolute;
-  
+  background-color: hsl(36deg 100% 50% / 38%);
+
    z-index: 30;
   height: 100vh;
   top: 0;
@@ -163,6 +170,11 @@ button.share-btn-options{
 }
 .change-txt-color-btn{
     background-image: url(/ICONS/paint-board-and-brush.png);
+    background-size: contain;
+    text-decoration: none;
+}
+.save.change{
+    background-image: url(/ICONS/save.png);
     background-size: contain;
     text-decoration: none;
 }
@@ -268,5 +280,29 @@ width: 400px;
   cursor: pointer;
   height: 35%;
 }
+.delete-saved-meme{
+position: absolute;
+z-index: 20;
+bottom: 0;
+right: 0;
+width: 30px;
+height: 30px;
+background-image: url(/ICONS/trash.png);
+background-size: contain;
+}
+
+.saved-meme-img{
+  position: relative;
+}
+
+.font-style{
+  grid-area: 2/1/3/4;
+ /* width: 100%; */
 
 
+}
+.font-list{
+  height: 40px;
+  display: flex;
+  
+}

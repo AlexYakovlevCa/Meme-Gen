@@ -16,3 +16,11 @@ console.log(filter)
   elGallContainer.innerHTML = strHtml.join("");
 }
 
+function onDeleteSavedMeme (id){
+const deleteMemeIdx = gSavedMemes.findIndex(
+  (meme) => meme.memeId === id
+);
+gSavedMemes.splice(deleteMemeIdx,1)
+saveToStorage(KEY, gSavedMemes)
+loadSavedMemesToGallery()
+}

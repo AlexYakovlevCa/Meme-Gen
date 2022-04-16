@@ -42,7 +42,11 @@ body {
   grid-template: repeat(4, 1fr) / repeat(4, 1fr);
   background-color: var(--primary-color-2);
 }
-
+.me-links-about{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .txt-to-canvas {
   height: 60px;
   border-radius: 12px;

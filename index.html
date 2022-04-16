@@ -23,7 +23,7 @@
                 href="#"
                 class="main-nav-item meme flex"
                 onclick="onMemeOptClick()"
-                ><span>Meme</span></a
+                ><span class="gallery-btn">Saved</span></a
               >
             </a>
             <a href="#" class="main-nav-item about flex"><span>About</span></a>
@@ -58,12 +58,21 @@
 
         <me class="about-me middle-layout flex">
           <div class="me-pictue"></div>
-          <p class="lorem">
-            Hey! , my name is <strong>Alex Yakovlev.</strong> currently studieng
-            at <strong>CodingAcademy</strong> BootCamp 💪. Soon to be become a
-            full fledeg&emsp; <strong>Full Stack Developer</strong>
-            &emsp;&nbsp; 🚀&nbsp;&nbsp; See ya soon!!!
-          </p>
+          <div class="me-links-about">
+
+            <p class="lorem">
+              Hey! , my name is <strong>Alex Yakovlev.</strong> currently studieng
+              at <strong>CodingAcademy</strong> BootCamp 💪. Soon to be become a
+              full fledeg&emsp; <strong>Full Stack Developer</strong>
+              &emsp;&nbsp; 🚀&nbsp;&nbsp; See ya soon!!!
+              
+            </p>
+            <ul class="clean-list me-links flex">
+              <li><a target="_blank" href="https://www.facebook.com/AlexKibab" class="fa fa-facebook"></a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/%D7%90%D7%9C%D7%9B%D7%A1-%D7%99%D7%A2%D7%A7%D7%95%D7%91%D7%9C%D7%91-27a592236/" class="fa fa-linkedin"></a></li>
+              <li><a target="_blank" href="https://www.instagram.com/yakovlev.alex1/" class="fa fa-instagram"></a></li>
+            </ul>
+          </div>
         </me>
         <div class="canvas-modal middle-layout">
           <div class="options">
@@ -80,7 +89,7 @@
                   onclick="moveSelectedNext()"
                 ></button>
                 <button
-                  class="move-selected-up save"
+                  class="save change"
                   onclick="onSaveMeme()"
                 ></button>
                 <button
@@ -97,7 +106,7 @@
                 ></button>
               </div>
             </section>
-            <section class="options-txt-control flex">
+            <section class="options-txt-control">
               <button class="inc-font change" onclick="onIncFont()"></button>
               <button class="dec-font change" onclick="onDecFont()"></button>
               <button
@@ -112,9 +121,13 @@
                 class="move-text-right change"
                 onclick="MoveTextRight()"
               ></button>
-              <!-- I have Add'd more options for Max control with buttons -->
-              <!-- <button class="move-text-down"    onclick="MoveTextDown()" ></button> -->
-              <!-- <button class="move-text-up"    onclick="MoveTextUp()" ></button> -->
+              <div class="font-style">
+                <select onchange="onChangeFontStyle(this)" list="font-list" >
+                  <option value="impact">impact</option>
+                  <option value="david">david</option>
+                  <option value="ariel">ariel</option>
+                </select>
+              </div>
               <div class="change-txt-color">
                 <button type="color" class="change-txt-color-btn change">
                   <input
@@ -136,6 +149,8 @@
                     id=""
                   />
                 </button>
+               
+                
               </div>
             </section>
             <section class="emotes">
@@ -143,9 +158,6 @@
                 <img src="/emotes/left-arrow.png" alt="" />
               </button>
               <div class="emotes-carousel">
-                <!-- <img  src="emotes/emote-3.png" onclick="OnEmoteClick(this)"/>
-                <img  src="emotes/emote-1.png" onclick="OnEmoteClick(this)"/>
-                <img  src="emotes/emote-2.png" onclick="OnEmoteClick(this)"/> -->
               </div>
               <button
                 class="right-emote-nav emo-btn"
@@ -188,7 +200,7 @@
         </footer>
       </div>
     </div>
-
+    
     <script src="MainScript/utilities.js"></script>
     <script src="MainScript/Gallery-services.js"></script>
     <script src="MainScript/canvas-services.js"></script>
