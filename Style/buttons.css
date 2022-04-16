@@ -16,7 +16,7 @@ border-radius: 12px;
   justify-content: center;
 }
 
-.options button:hover{
+.options-txt-control button:hover{
 cursor: pointer;
 animation: btnanimation 0.3s 
 }
