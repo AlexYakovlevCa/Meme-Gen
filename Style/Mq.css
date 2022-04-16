@@ -145,6 +145,7 @@
     .middle-layout {
       max-width: 590px;
     }
+   
     .img-for-display:hover {
       width: 97px;
       height: 97px;
@@ -215,6 +216,10 @@
     column-gap: 20px;
     align-self: center;
     text-align: center;
+  }
+  .img-for-display:hover {
+    width: 85.5px;
+    height: 83px;
   }
     
   }

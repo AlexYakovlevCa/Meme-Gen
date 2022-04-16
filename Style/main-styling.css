@@ -16,10 +16,9 @@ body {
 
 .img-for-display {
   transition: width 0.3s, height 0.3s;
+  
 }
 .img-for-display:hover {
-  width: 120px;
-  height: 120px;
   cursor: pointer;
 }
 .content-container {
@@ -32,6 +31,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 129.9531px));
   column-gap: 0.3rem;
+  row-gap: 0.1rem;
 }
 .canvas-modal {
   flex-grow: 1;
